@@ -1,3 +1,6 @@
 citra
+intra
 mitra
 nitra
+tiera
+tigra

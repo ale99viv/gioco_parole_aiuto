@@ -1,6 +1,8 @@
 import os
 import random
 
+from cv2 import line
+
 
 def yello_word(strY):
 
@@ -86,32 +88,80 @@ with open("txt/cinque.txt", "r") as c:
         print(lines[random.randint(0, len(lines)-1)])
 
 
-
-black = "s"
 blackL = []
-while black != "0":
-    black = input("Inserire lettere nere e index(es. f): ")
-    if black != "0":
-        blackL.append(black)
-
-black_word(blackL)
-
-yellow = "s"
-yellowL= []
-
-while yellow != "0":
-    yellow = input("Inserire lettere gialle con index(es: a5), 0 to finish: ")
-    if yellow != "0":
-        yellowL.append(yellow)
-
-yello_word(yellowL)
-
-green = "s"
 greenL = []
-while green != "0":
-    green = input("Inserire lettere verdi con index(es.): ")
-    if green != "0":
-        greenL.append(green)
+yellowL = []
 
 
-green_word(greenL)
+
+
+
+
+while True:
+
+
+    print("Lettere nere:\n", blackL)
+    black = "s"
+    while black != "0":
+        black = input("Inserire lettere nere: ")
+        if black != "0":
+            blackL.append(black)
+
+    black_word(blackL)
+
+    yellow = "s"
+
+    print("Lettere gialle:\n", yellowL)
+    while yellow != "0":
+        yellow = input("Inserire lettere gialle con index(es: a5), 0 to finish: ")
+        if yellow != "0":
+            yellowL.append(yellow)
+
+    yello_word(yellowL)
+
+    print("Lettere verdi:\n", greenL)
+    green = "s"
+    while green != "0":
+        green = input("Inserire lettere verdi con index(es.): ")
+        if green != "0":
+            greenL.append(green)
+
+    green_word(greenL)
+
+    req = input("Cosa vuoi visualizzare random([b] [g] [y]): ")
+
+    if req == "b":
+        a = open("txt/black.txt", "r")
+        lines = a.read().split("\n")
+        
+        for i in range(10):
+            try:
+                wordC = lines[random.randint(0, len(lines)-1)]
+                print(wordC)
+            except:
+                pass
+        a.close()
+
+    if req == "g":
+        a = open("txt/green.txt", "r")
+        lines = a.read().split("\n")
+        
+        for i in range(10):
+            try:
+                wordC = lines[random.randint(0, len(lines)-1)]
+                print(wordC)
+            except:
+                pass
+        a.close()
+
+    if req == "y":
+        a = open("txt/gialle.txt", "r")
+        lines = a.read().split("\n")
+        
+        for i in range(10):
+            try:
+                wordC = lines[random.randint(0, len(lines)-1)]
+                print(wordC)
+            except Exception as e:
+                pass
+        a.close()
