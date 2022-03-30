@@ -1,6 +1,2 @@
-citra
-intra
-mitra
-nitra
-tiera
-tigra
+conca
+conga

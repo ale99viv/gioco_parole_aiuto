@@ -33,7 +33,7 @@ def yello_word(strY):
 def black_word(strB):
     
     new = open("txt/black.txt", "w+")
-    with open("txt/secondP.txt", "r") as file:
+    with open("txt/valid.txt", "r") as file:
 
         lines = file.read().split("\n")
 
@@ -42,12 +42,13 @@ def black_word(strB):
             for l in strB:
                 lettera = l[0]
 
-                if lettera in line:
-                    pass
-                elif lettera not in line:
-                    count = 1 
 
-            if count == 1:
+                if lettera not in line:
+                    count += 1 
+                elif lettera in line:
+                    pass
+
+            if count == len(strB):
                 with open("txt/black.txt", "a") as g:
                     g.write("{}\n".format(line))
 
@@ -80,7 +81,7 @@ def green_word(strG):
 
 
 
-with open("txt/cinque.txt", "r") as c:
+with open("txt/valid.txt", "r") as c:
     lines = c.read().split("\n")
     wordC = lines[random.randint(0, len(lines)-1)]
 
@@ -91,10 +92,6 @@ with open("txt/cinque.txt", "r") as c:
 blackL = []
 greenL = []
 yellowL = []
-
-
-
-
 
 
 while True:
@@ -128,7 +125,7 @@ while True:
 
     green_word(greenL)
 
-    req = input("Cosa vuoi visualizzare random([b] [g] [y]): ")
+    req = input("Cosa vuoi visualizzare random([b] [y] [g]): ")
 
     if req == "b":
         a = open("txt/black.txt", "r")
