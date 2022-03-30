@@ -1,8 +1,6 @@
 import os
 import random
 
-from cv2 import line
-
 
 def yello_word(strY):
 
@@ -89,13 +87,14 @@ with open("txt/valid.txt", "r") as c:
         print(lines[random.randint(0, len(lines)-1)])
 
 
+
+
 blackL = []
 greenL = []
 yellowL = []
 
 
 while True:
-
 
     print("Lettere nere:\n", blackL)
     black = "s"
