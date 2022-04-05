@@ -28,6 +28,7 @@ def yello_word(strY):
                     g.write("{}\n".format(line))
 
 
+
 def black_word(strB):
     
     new = open("txt/black.txt", "w+")
@@ -60,18 +61,23 @@ def green_word(strG):
 
         for line in lines:
             count = 0
+            line = line.strip()
+
             for l in strG:
                 lettera = l[0]
                 indd = l[1]
-
+                
                 try:
-                    if line.index(lettera) == int(indd):
-                        count += 1
-                    elif line.index(lettera) != int(indd):
-                        pass
+                    inexF = 0
+                    for i in line:
+                        if (i == lettera) and (int(indd) == inexF):
+                            count += 1
+                        else:
+                            pass
+                        inexF += 1
+
                 except Exception as e:
                     pass
-
             if count == len(strG):
                 with open("txt/green.txt", "a") as g:
                     g.write("{}\n".format(line))
@@ -99,7 +105,7 @@ while True:
     print("Lettere nere:\n", blackL)
     black = "s"
     while black != "0":
-        black = input("Inserire lettere nere: ")
+        black = input("Inserire lettere nere con index: ")
         if black != "0":
             blackL.append(black)
 
